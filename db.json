@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "cfb8",
+      "username": "ania1",
+      "email": "ania@wp.pl",
+      "password": "Ania1234",
+      "role": "user",
+      "createdAt": "2025-05-18T14:01:58.281Z"
+    }
+  ],
+  "meetings": []
+}
