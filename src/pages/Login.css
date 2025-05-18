@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom right, #c471f5, #fa71cd);
+  height: 100vh;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 320px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  margin: 60px
+}
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 16px;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease;
+}
+
+form input::placeholder {
+  color: #eee;
+}
+
+form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+form button[type="submit"],
+form p button {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 16px;
+  backdrop-filter: blur(5px);
+}
+
+form button:hover,
+form p button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}

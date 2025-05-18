@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import "./Login.css"
 
 function Login() {
   const { register, handleSubmit } = useForm()
@@ -19,8 +20,6 @@ function Login() {
       }
 
       const user = users[0]
-
-      // 🧠 Zapis do localStorage
       localStorage.setItem("user", JSON.stringify(user))
 
       alert("✅ Zalogowano pomyślnie!")
@@ -32,34 +31,34 @@ function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      
-      <h2>Logowanie</h2>
+    <div className="login-container">
+      <form onSubmit={handleSubmit(onSubmit)} className="login-form">
+        <h2>Logowanie</h2>
 
-      <input
-        type="email"
-        placeholder="Email"
-        {...register("email")}
-      />
-      <input
-        type="password"
-        placeholder="Hasło"
-        {...register("password")}
-      />
+        <input
+          type="email"
+          placeholder="Email"
+          {...register("email")}
+        />
+        <input
+          type="password"
+          placeholder="Hasło"
+          {...register("password")}
+        />
 
-      <button type="submit">Zaloguj się</button>
-      <p>
-  Nie masz konta?{" "}
-  <button
-    type="button"
-    onClick={() => navigate("/register")}
-    style={{ color: "blue", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}
-  >
-    Zarejestruj się
-  </button>
-</p>
-
-    </form>
+        <button type="submit">Zaloguj się</button>
+        <p>
+          Nie masz konta?{" "}
+          <button
+            type="button"
+            onClick={() => navigate("/register")}
+            className="link-button"
+          >
+            Zarejestruj się
+          </button>
+        </p>
+      </form>
+    </div>
   )
 }
 
