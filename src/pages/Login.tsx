@@ -33,6 +33,7 @@ function Login() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      
       <h2>Logowanie</h2>
 
       <input
@@ -47,6 +48,17 @@ function Login() {
       />
 
       <button type="submit">Zaloguj się</button>
+      <p>
+  Nie masz konta?{" "}
+  <button
+    type="button"
+    onClick={() => navigate("/register")}
+    style={{ color: "blue", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}
+  >
+    Zarejestruj się
+  </button>
+</p>
+
     </form>
   )
 }
