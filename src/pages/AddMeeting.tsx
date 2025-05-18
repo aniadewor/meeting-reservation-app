@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import "./AddMeeting.css"
 
 function AddMeeting() {
   const { register, handleSubmit } = useForm()
@@ -27,8 +28,9 @@ function AddMeeting() {
     }
   }
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+ return (
+  <div className="add-bg">
+    <form className="add-form" onSubmit={handleSubmit(onSubmit)}>
       <h2>Dodaj spotkanie</h2>
 
       <input placeholder="Tytuł" {...register("title")} />
@@ -36,11 +38,15 @@ function AddMeeting() {
       <input type="date" {...register("date")} />
       <input type="time" {...register("startTime")} />
       <input type="time" {...register("endTime")} />
-      <input placeholder="Uczestnicy (emaile, oddzielone przecinkami)" {...register("participants")} />
+      <input
+        placeholder="Uczestnicy (emaile, oddzielone przecinkami)"
+        {...register("participants")}
+      />
 
       <button type="submit">Zapisz spotkanie</button>
     </form>
-  )
+  </div>
+)
 }
 
 export default AddMeeting

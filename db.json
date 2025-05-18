@@ -37,6 +37,20 @@
       ],
       "status": "scheduled",
       "id": "35b4"
+    },
+    {
+      "id": "7462",
+      "title": "",
+      "description": "",
+      "date": "",
+      "startTime": "",
+      "endTime": "",
+      "participants": [
+        ""
+      ],
+      "createdBy": "ania@wp.pl",
+      "status": "scheduled",
+      "createdAt": "2025-05-18T19:14:56.007Z"
     }
   ]
 }

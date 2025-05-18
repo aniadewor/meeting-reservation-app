@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-
+import "./MeetingList.css"
 interface Meeting {
   id: number
   title: string
@@ -62,47 +62,34 @@ function MeetingList() {
     })
 
   return (
-    <div>
+  <div className="meetinglist-bg">
+    <div className="meetinglist-container">
       <h2>Moje spotkania</h2>
-
-      {/* Filtrowanie i sortowanie */}
-      <div style={{ marginBottom: "1rem" }}>
-        <label>Status:&nbsp;</label>
-        <select onChange={(e) => setStatusFilter(e.target.value)} value={statusFilter}>
-          <option value="all">Wszystkie</option>
-          <option value="scheduled">Zaplanowane</option>
-          <option value="canceled">Odwołane</option>
-        </select>
-
-        &nbsp;&nbsp;
-
-        <label>Sortuj wg daty:&nbsp;</label>
-        <select onChange={(e) => setSortDirection(e.target.value)} value={sortDirection}>
-          <option value="asc">Od najstarszych</option>
-          <option value="desc">Od najnowszych</option>
-        </select>
-      </div>
-
-      {filteredMeetings.length === 0 ? (
-        <p>Brak pasujących spotkań.</p>
+      {meetings.length === 0 ? (
+        <p>Brak spotkań.</p>
       ) : (
-        <ul>
-          {filteredMeetings.map((meeting) => (
-            <li key={meeting.id} style={{ marginBottom: "1rem" }}>
-              <strong>{meeting.title}</strong> – {meeting.date} {meeting.startTime}-{meeting.endTime}<br />
-              {meeting.description}<br />
-              Uczestnicy: {meeting.participants?.join(", ") || "brak"}<br />
-              Status: {meeting.status}<br />
-
-              <button onClick={() => navigate(`/edit/${meeting.id}`)}>✏️ Edytuj</button>
-              &nbsp;
-              <button onClick={() => handleDelete(meeting.id)}>🗑️ Usuń</button>
+        <ul className="meeting-list">
+          {meetings.map((meeting) => (
+            <li key={meeting.id} className="meeting-card">
+              <h3>{meeting.title}</h3>
+              <p>
+                <strong>Data:</strong> {meeting.date} <br />
+                <strong>Godzina:</strong> {meeting.startTime} - {meeting.endTime}
+              </p>
+              <p><strong>Opis:</strong> {meeting.description}</p>
+              <p><strong>Uczestnicy:</strong> {meeting.participants.join(", ")}</p>
+              <p><strong>Status:</strong> {meeting.status}</p>
+              <div className="meeting-actions">
+                <button onClick={() => navigate(`/edit/${meeting.id}`)}>✏️ Edytuj</button>
+                <button onClick={() => handleDelete(meeting.id)}>🗑️ Usuń</button>
+              </div>
             </li>
           ))}
         </ul>
       )}
     </div>
-  )
+  </div>
+)
 }
 
 export default MeetingList
