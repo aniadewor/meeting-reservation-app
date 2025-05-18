@@ -9,5 +9,18 @@
       "createdAt": "2025-05-18T14:01:58.281Z"
     }
   ],
-  "meetings": []
+  "meetings": [
+    {
+      "title": "eee",
+      "description": "eee",
+      "date": "",
+      "startTime": "",
+      "endTime": "",
+      "participants": [
+        "ee"
+      ],
+      "status": "scheduled",
+      "id": "35b4"
+    }
+  ]
 }
