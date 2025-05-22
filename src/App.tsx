@@ -1,11 +1,14 @@
-import { Routes, Route } from "react-router-dom"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
-import AddMeeting from "./pages/AddMeeting"
-import MeetingList from "./pages/MeetingList"
-import EditMeeting from "./pages/EditMeeting"
-import Dashboard from "./pages/Dashboard"
-import PrivateRoute from "./components/PrivateRoute"
+// src/App.tsx
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AddMeeting from "./pages/AddMeeting";
+import MeetingList from "./pages/MeetingList";
+import EditMeeting from "./pages/EditMeeting";
+import Dashboard from "./pages/Dashboard";
+import AdminDashboard from "./pages/AdminDashboard";  // ← nowy import
+import PrivateRoute from "./components/PrivateRoute";
+import CalendarView from "./pages/CalendarView";
 
 function App() {
   return (
@@ -19,37 +22,58 @@ function App() {
       <Route
         path="/"
         element={
-          <PrivateRoute>
+          <PrivateRoute allowedRoles={["user", "admin"]}>
             <Dashboard />
           </PrivateRoute>
         }
       />
+
       <Route
         path="/add"
         element={
-          <PrivateRoute>
+          <PrivateRoute allowedRoles={["user", "admin"]}>
             <AddMeeting />
           </PrivateRoute>
         }
       />
+
       <Route
         path="/meetings"
         element={
-          <PrivateRoute>
+          <PrivateRoute allowedRoles={["user", "admin"]}>
             <MeetingList />
           </PrivateRoute>
         }
       />
+
       <Route
         path="/edit/:id"
         element={
-          <PrivateRoute>
+          <PrivateRoute allowedRoles={["user", "admin"]}>
             <EditMeeting />
           </PrivateRoute>
         }
       />
+
+      {/* Panel administratora */}
+      <Route
+        path="/admin"
+        element={
+          <PrivateRoute allowedRoles={["admin"]}>
+            <AdminDashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+    path="/calendar"
+    element={
+      <PrivateRoute allowedRoles={['user','admin']}>
+        <CalendarView />
+      </PrivateRoute>
+    }
+  />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

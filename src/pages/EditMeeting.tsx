@@ -4,17 +4,37 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./EditMeeting.css";
 
-function EditMeeting() {
+// Używamy oddzielnego typu dla formularza, gdzie participants jest string, nie tablica
+interface EditFormData {
+  title: string;
+  description: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  participants: string;
+  status: "scheduled" | "canceled";
+}
+
+export default function EditMeeting() {
   const { id } = useParams<{ id: string }>();
-  const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid, isSubmitting },
+  } = useForm<EditFormData>({ mode: "onBlur" });
 
   useEffect(() => {
     const fetchMeeting = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/meetings/${id}`);
+        const res = await axios.get<EditFormData & { participants: string[] }>(
+          `http://localhost:3001/meetings/${id}`
+        );
         const data = res.data;
+        // Konwertujemy tablicę na string
         reset({
           title: data.title,
           description: data.description,
@@ -22,7 +42,7 @@ function EditMeeting() {
           startTime: data.startTime,
           endTime: data.endTime,
           participants: data.participants.join(", "),
-          status: data.status,
+          status: data.status
         });
       } catch (err) {
         console.error("❌ Błąd ładowania spotkania:", err);
@@ -35,16 +55,15 @@ function EditMeeting() {
     fetchMeeting();
   }, [id, reset]);
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: EditFormData) => {
     try {
       const updatedMeeting = {
         ...data,
         participants: data.participants
           .split(",")
-          .map((email: string) => email.trim())
-          .filter((e: string) => e),
+          .map((email) => email.trim())
+          .filter((e) => e),
       };
-
       await axios.put(`http://localhost:3001/meetings/${id}`, updatedMeeting);
       alert("✅ Spotkanie zaktualizowane!");
       navigate("/meetings");
@@ -62,55 +81,67 @@ function EditMeeting() {
         <h2>Edytuj spotkanie</h2>
 
         <input
-          className="edit-form__field"
           placeholder="Tytuł"
-          {...register("title")}
+          {...register("title", { required: "Tytuł jest wymagany" })}
         />
+        {errors.title && <p className="error">{errors.title.message}</p>}
 
         <textarea
-          className="edit-form__field edit-form__textarea"
           placeholder="Opis"
-          {...register("description")}
+          {...register("description", { required: "Opis jest wymagany" })}
         />
+        {errors.description && <p className="error">{errors.description.message}</p>}
 
         <input
-          className="edit-form__field"
           type="date"
-          {...register("date")}
+          {...register("date", {
+            required: "Data jest wymagana",
+            validate: (v) =>
+              v >= new Date().toISOString().slice(0, 10) ||
+              "Data musi być dzisiaj lub później",
+          })}
         />
+        {errors.date && <p className="error">{errors.date.message}</p>}
 
         <input
-          className="edit-form__field"
           type="time"
-          {...register("startTime")}
+          {...register("startTime", { required: "Czas rozpoczęcia jest wymagany" })}
         />
+        {errors.startTime && <p className="error">{errors.startTime.message}</p>}
 
         <input
-          className="edit-form__field"
           type="time"
-          {...register("endTime")}
+          {...register("endTime", {
+            required: "Czas zakończenia jest wymagany",
+            validate: (value, context) =>
+              value > context.startTime ||
+              "Czas zakończenia musi być po rozpoczęciu",
+          })}
         />
+        {errors.endTime && <p className="error">{errors.endTime.message}</p>}
 
         <input
-          className="edit-form__field"
-          placeholder="Uczestnicy (emaile)"
-          {...register("participants")}
+          placeholder="Uczestnicy (emaile, oddzielone przecinkami)"
+          {...register("participants", {
+            required: "Podaj przynajmniej jeden email",
+            pattern: {
+              value: /^(\s*\S+@\S+\.\S+\s*)(,\s*\S+@\S+\.\S+\s*)*$/,
+              message: "Lista powinna zawierać poprawne adresy email",
+            },
+          })}
         />
+        {errors.participants && <p className="error">{errors.participants.message}</p>}
 
-        <select
-          className="edit-form__field edit-form__select"
-          {...register("status")}
-        >
+        <select {...register("status", { required: "Status jest wymagany" })}>
           <option value="scheduled">Zaplanowane</option>
           <option value="canceled">Odwołane</option>
         </select>
+        {errors.status && <p className="error">{errors.status.message}</p>}
 
-        <button className="edit-form__button" type="submit">
-          Zapisz zmiany
+        <button type="submit" disabled={!isValid || isSubmitting}>
+          {isSubmitting ? "Zapis…" : "Zapisz zmiany"}
         </button>
       </form>
     </div>
   );
 }
-
-export default EditMeeting;

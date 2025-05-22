@@ -111,3 +111,49 @@ body {
 .meeting-actions button:hover {
   background: rgba(255, 255, 255, 0.45);
 }
+
+/* Filtry nad listą spotkań */
+.meeting-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 16px;
+  border-radius: 20px;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.meeting-filters select,
+.meeting-filters input,
+.meeting-filters .sort-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: white;
+  font-size: 15px;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease;
+}
+
+.meeting-filters select:focus,
+.meeting-filters input:focus,
+.meeting-filters .sort-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.sort-button {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Na węższych ekranach układ filtrów jeden pod drugim */
+@media (max-width: 600px) {
+  .meeting-filters {
+    flex-direction: column;
+  }
+}

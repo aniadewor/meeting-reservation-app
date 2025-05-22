@@ -30,6 +30,7 @@ return (
       <div className="dashboard-buttons">
         <button onClick={() => navigate("/add")}>➕ Dodaj spotkanie</button>
         <button onClick={() => navigate("/meetings")}>📋 Moje spotkania</button>
+        <button onClick={() => navigate("/calendar")}>🗓️ Kalendarz</button>
         <button onClick={handleLogout}>🔓 Wyloguj</button>
       </div>
     </div>

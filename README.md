@@ -1,54 +1,126 @@
-# React + TypeScript + Vite
+Aplikacja do Zarządzania Rezerwacjami Spotkań
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Technologie: React 18, TypeScript, React Router, React Hook Form, Axios, JSON Server, FullCalendar 6, TailwindCSS/MUI optionalne
 
-Currently, two official plugins are available:
+Opis projektu
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplikacja umożliwia rejestrację i logowanie użytkowników (user i admin), zarządzanie rezerwacjami spotkań (dodawanie, edycja, usuwanie), filtrowanie, sortowanie oraz podgląd w widoku listy i kalendarza.
 
-## Expanding the ESLint configuration
+Architektura
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Frontend: React + TypeScript
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Strony: Login, Register, Dashboard, AddMeeting, MeetingList, EditMeeting, AdminDashboard, CalendarView
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Komponenty: PrivateRoute (Rola-based route guard)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Style: glassmorphism w czystym CSS, ujednolicony motyw gradientu
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Backend (mock): JSON Server (db.json)
+
+Kolekcje: users, meetings
+
+Uruchomienie: json-server --watch db.json --port 3001
+
+Modele danych
+
+interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string; // w mocku plain text
+  role: 'user' | 'admin';
+  createdAt: string;
+}
+
+interface Meeting {
+  id: string;
+  title: string;
+  description: string;
+  date: string;        // YYYY-MM-DD
+  startTime: string;   // hh:mm
+  endTime: string;     // hh:mm
+  participants: string[];
+  createdBy: string;   // email
+  status: 'scheduled' | 'canceled';
+  createdAt: string;
+}
+
+Instalacja i uruchomienie
+
+Klonuj repozytorium
+
+git clone <url>
+cd meeting-reservation-app
+
+Zainstaluj zależności
+
+npm install
+
+Uruchom JSON Server (backend)
+
+npm run backend
+# lub
+npx json-server --watch db.json --port 3001
+
+Uruchom frontend
+
+npm start
+# lub, jeśli używasz Vite
+npm run dev
+
+Dostęp do aplikacji
+
+Frontend: http://localhost:3000
+
+Backend API: http://localhost:3001
+
+Skrypty (package.json)
+
+Skrypt
+
+Komenda
+
+backend
+
+json-server --watch db.json --port 3001
+
+start
+
+react-scripts start (lub vite)
+
+build
+
+react-scripts build
+
+test
+
+react-scripts test
+
+Endpoints
+
+GET /users - lista użytkowników
+
+POST /users - rejestracja
+
+GET /users?email=&password= - logowanie
+
+GET /meetings - lista spotkań
+
+POST /meetings - dodanie spotkania
+
+PUT /meetings/:id - edycja spotkania
+
+DELETE /meetings/:id - usunięcie spotkania
+
+Dalsze kroki / Rozszerzenia
+
+Hashowanie haseł (bcrypt) i produkcyjny backend (NestJS, Firebase, Supabase)
+
+Powiadomienia push / email
+
+Integracja z Google Calendar API
+
+Testy jednostkowe i e2e
+
