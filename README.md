@@ -1,126 +1,91 @@
-Aplikacja do Zarządzania Rezerwacjami Spotkań
+Meeting Reservation App
 
-Technologie: React 18, TypeScript, React Router, React Hook Form, Axios, JSON Server, FullCalendar 6, TailwindCSS/MUI optionalne
+Anna Dewor – Github https://github.com/aniadewor/meeting-reservation-app.git
 
-Opis projektu
+To jest projekt studencki stworzony w React z użyciem JSON Server do zarządzania rezerwacjami spotkań.
 
-Aplikacja umożliwia rejestrację i logowanie użytkowników (user i admin), zarządzanie rezerwacjami spotkań (dodawanie, edycja, usuwanie), filtrowanie, sortowanie oraz podgląd w widoku listy i kalendarza.
+Przegląd aplikacji
 
-Architektura
+Aplikacja pozwala na:
 
-Frontend: React + TypeScript
+Rejestrację nowych użytkowników i logowanie.
 
-Strony: Login, Register, Dashboard, AddMeeting, MeetingList, EditMeeting, AdminDashboard, CalendarView
+Tworzenie, edycję i anulowanie własnych spotkań.
 
-Komponenty: PrivateRoute (Rola-based route guard)
+Przeglądanie spotkań w formie listy lub kalendarza (miesięczny/tygodniowy widok).
 
-Style: glassmorphism w czystym CSS, ujednolicony motyw gradientu
+Panel administratora, w którym można zarządzać wszystkimi kontami i rezerwacjami.
 
-Backend (mock): JSON Server (db.json)
+Technologie
 
-Kolekcje: users, meetings
+Frontend: React 18 + TypeScript, React Router, React Hook Form, Axios
 
-Uruchomienie: json-server --watch db.json --port 3001
+Mock Backend: JSON Server (plik db.json)
 
 Modele danych
 
-interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string; // w mocku plain text
-  role: 'user' | 'admin';
-  createdAt: string;
-}
+User
 
-interface Meeting {
-  id: string;
-  title: string;
-  description: string;
-  date: string;        // YYYY-MM-DD
-  startTime: string;   // hh:mm
-  endTime: string;     // hh:mm
-  participants: string[];
-  createdBy: string;   // email
-  status: 'scheduled' | 'canceled';
-  createdAt: string;
-}
+id: string
+
+firstName, lastName: string
+
+email: string
+
+password: string
+
+role: "user" | "admin"
+
+createdAt: ISO timestamp
+
+Meeting
+
+id: string
+
+title: string
+
+description: string
+
+date: YYYY-MM-DD
+
+startTime, endTime: hh:mm
+
+participants: string[] (emaile)
+
+createdBy: string (email użytkownika)
+
+status: "scheduled" | "canceled"
+
+createdAt: ISO timestamp
 
 Instalacja i uruchomienie
 
-Klonuj repozytorium
+Sklonuj repozytorium:
 
-git clone <url>
+git clone https://github.com/aniadewor/meeting-reservation-app.git
 cd meeting-reservation-app
 
-Zainstaluj zależności
+Zainstaluj zależności:
 
 npm install
 
-Uruchom JSON Server (backend)
+Uruchom mock backend:
 
 npm run backend
-# lub
-npx json-server --watch db.json --port 3001
 
-Uruchom frontend
+Uruchom frontend:
 
 npm start
-# lub, jeśli używasz Vite
-npm run dev
 
-Dostęp do aplikacji
+Otwórz przeglądarkę pod adresem http://localhost:3000.
 
-Frontend: http://localhost:3000
+Użytkowanie
 
-Backend API: http://localhost:3001
+Rejestruj się lub zaloguj jako istniejący administrator (admin@example.com / admin123).
 
-Skrypty (package.json)
+Po zalogowaniu użytkownik może dodawać nowe spotkania i zarządzać własnymi rezerwacjami.
 
-Skrypt
+Przełącz się na widok kalendarza, aby zobaczyć plan miesięczny lub tygodniowy.
 
-Komenda
-
-backend
-
-json-server --watch db.json --port 3001
-
-start
-
-react-scripts start (lub vite)
-
-build
-
-react-scripts build
-
-test
-
-react-scripts test
-
-Endpoints
-
-GET /users - lista użytkowników
-
-POST /users - rejestracja
-
-GET /users?email=&password= - logowanie
-
-GET /meetings - lista spotkań
-
-POST /meetings - dodanie spotkania
-
-PUT /meetings/:id - edycja spotkania
-
-DELETE /meetings/:id - usunięcie spotkania
-
-Dalsze kroki / Rozszerzenia
-
-Hashowanie haseł (bcrypt) i produkcyjny backend (NestJS, Firebase, Supabase)
-
-Powiadomienia push / email
-
-Integracja z Google Calendar API
-
-Testy jednostkowe i e2e
+Administrator ma dodatkowy przycisk „Panel Administratora” do przeglądu i zarządzania wszystkimi kontami i spotkaniami.
 
