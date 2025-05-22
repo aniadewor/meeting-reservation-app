@@ -4,6 +4,9 @@ body {
   font-family: "Segoe UI", sans-serif;
   background: linear-gradient(to bottom right, #c471f5, #fa71cd);
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
@@ -15,9 +18,8 @@ form {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   color: #fff;
   text-align: center;
-  position: relative;
-  margin: 60px
 }
+
 form input {
   width: 100%;
   padding: 12px;

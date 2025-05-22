@@ -1,36 +1,71 @@
-.meetinglist-bg {
-  height: 100vh;
-  background: linear-gradient(to bottom right, #c471f5, #fa71cd);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+/* styles.css */
+
+/* RESET MARGINS I PEŁNA WYSOKOŚĆ */
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+/* GRADIENT TŁA NA CAŁYM BODY (ciągły, bez przerw) */
+body {
+  background: linear-gradient(to right, #c471f5 0%, #fa71cd 100%) fixed no-repeat center/cover;
   font-family: 'Segoe UI', sans-serif;
-  padding: 40px 20px;
   overflow-y: auto;
 }
 
+/* GŁÓWNY WRAPPER BEZ BACKGROUND, TYLKO PODBIERA BODY */
+.meetinglist-bg {
+  padding: 120px 20px; /* wystarczająco dużo miejsca nad i pod kontenerem */
+  display: flex;
+  justify-content: center;
+}
+
+/* KONTAINER Z GLASSMORPHISM, TERAZ Z MARGINESAMI I ZAOKRĄGLONYMI ROGAMI */
 .meetinglist-container {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
   border-radius: 20px;
-  padding: 30px;
-  max-width: 700px;
-  width: 100%;
-  color: white;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 1200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  margin: 0 auto;      /* centrowanie oraz domyślne marginesy */
+  margin-top: 60px;    /* dodatkowa przerwa nad kontenerem */
+  margin-bottom: 60px; /* taka sama przerwa pod kontenerem */
+  overflow: visible;
 }
 
 .meetinglist-container h2 {
+  font-size: 32px;
   text-align: center;
-  margin-bottom: 24px;
+  margin: 40px 0 30px;
 }
 
-.meeting-list {
+.meeting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  margin: 0;
+  overflow: visible;
+  flex: none;
+}
+
+/* Responsywność */
+@media (max-width: 900px) {
+  .meeting-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .meeting-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .meeting-card {
@@ -39,12 +74,14 @@
   padding: 20px;
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .meeting-card h3 {
-  margin-top: 0;
+  margin: 0 0 10px;
   font-size: 20px;
-  margin-bottom: 10px;
 }
 
 .meeting-card p {
@@ -57,7 +94,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .meeting-actions button {

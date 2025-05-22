@@ -11,7 +11,7 @@ function Login() {
     console.log("🔑 Próba logowania:", data)
 
     try {
-      const res = await axios.get(`http://localhost:3003/users?email=${data.email}&password=${data.password}`)
+      const res = await axios.get(`http://localhost:3001/users?email=${data.email}&password=${data.password}`)
       const users = res.data
 
       if (users.length === 0) {

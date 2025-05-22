@@ -1,40 +1,45 @@
+/* EditMeeting.css */
 
-.add-bg {
+.edit-bg {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 20px;
 }
+/* EditMeeting.css */
 
-.add-form {
+.edit-form {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
   border-radius: 20px;
   padding: 40px;
+  
+  /* nowe wartości: pełna szerokość w ramach paddingu + brak limitu */
   width: 100%;
-  max-width: 500px;
+  max-width: none;
+  
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;    /* centruje wszystkie pola */
+  align-items: center;
   gap: 16px;
   margin: 0 auto;
 }
 
-.add-form h2 {
+
+.edit-form h2 {
   margin: 0 0 16px;
   text-align: center;
   font-size: 24px;
 }
 
-/* wspólne style dla input, textarea i select */
-.add-form input,
-.add-form textarea,
-.add-form select {
-  width: 80%;             /* szerokość pól */
-  margin: 0 auto;         /* wyśrodkowanie pojedynczego pola */
+/* pola input/textarea/select dostaną 80% szerokości formularza */
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+  width: 80%;
   padding: 12px 16px;
   font-size: 15px;
   border: none;
@@ -43,29 +48,25 @@
   color: white;
   backdrop-filter: blur(8px);
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
-  resize: vertical;
   transition: background 0.3s ease;
 }
 
-.add-form input::placeholder,
-.add-form textarea::placeholder,
-.add-form select::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.add-form textarea {
+/* większa wysokość dla textarea */
+.edit-form textarea {
   min-height: 100px;
+  resize: vertical;
 }
 
-.add-form input:focus,
-.add-form textarea:focus,
-.add-form select:focus {
+/* focus */
+.edit-form input:focus,
+.edit-form textarea:focus,
+.edit-form select:focus {
   outline: none;
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* opcjonalnie: styl dla select bez natywnej strzałki
-.add-form select {
+/* dropdown bez domyślnej strzałki */
+.edit-form select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -74,11 +75,10 @@
   background-position: right 16px center;
   padding-right: 48px;
 }
-*/
 
-.add-form button {
-  width: 80%;             /* szerokość przycisku dopasowana do pól */
-  margin-top: 8px;
+/* przycisk */
+.edit-form button {
+  width: 80%;
   padding: 12px;
   font-size: 16px;
   font-weight: 500;
@@ -90,6 +90,6 @@
   transition: background 0.3s ease;
 }
 
-.add-form button:hover {
+.edit-form button:hover {
   background: rgba(255, 255, 255, 0.45);
 }

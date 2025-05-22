@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import "./Login.css"
 
 function Register() {
   const { register, handleSubmit } = useForm()
@@ -11,7 +12,7 @@ function Register() {
 
     try {
       // ➕ Wysłanie danych do JSON Servera na porcie 3003
-      const res = await axios.post("http://localhost:3003/users", {
+      const res = await axios.post("http://localhost:3001/users", {
         ...data,
         role: "user",
         createdAt: new Date().toISOString()

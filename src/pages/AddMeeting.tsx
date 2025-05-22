@@ -19,7 +19,7 @@ function AddMeeting() {
         createdAt: new Date().toISOString()
       }
 
-      await axios.post("http://localhost:3003/meetings", newMeeting)
+      await axios.post("http://localhost:3001/meetings", newMeeting)
       alert("✅ Spotkanie zostało dodane!")
       navigate("/") // lub np. navigate("/meetings")
     } catch (err: any) {
