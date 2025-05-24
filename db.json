@@ -60,7 +60,6 @@
       "createdAt": "2025-05-24T15:43:25.401Z"
     },
     {
-      "id": "902e",
       "title": "Warsztaty „Nowe narzędzia analityczne”",
       "description": "Praktyczne szkolenie z wykorzystania najnowszych funkcji w narzędziu X, ćwiczenia na rzeczywistych danych.",
       "date": "2025-06-12",
@@ -71,9 +70,8 @@
         "agnieszka.kaczmarek@firma.pl",
         "pawel.szymanski@firma.pl"
       ],
-      "createdBy": "ania@wp.pl",
       "status": "scheduled",
-      "createdAt": "2025-05-24T15:44:24.586Z"
+      "id": "902e"
     },
     {
       "id": "746f",

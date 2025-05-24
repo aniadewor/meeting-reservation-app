@@ -1,4 +1,3 @@
-
 .add-bg {
   display: flex;
   justify-content: center;
@@ -18,7 +17,7 @@
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;    /* centruje wszystkie pola */
+  align-items: center;
   gap: 16px;
   margin: 0 auto;
 }
@@ -29,12 +28,11 @@
   font-size: 24px;
 }
 
-/* wspólne style dla input, textarea i select */
 .add-form input,
 .add-form textarea,
 .add-form select {
-  width: 80%;             /* szerokość pól */
-  margin: 0 auto;         /* wyśrodkowanie pojedynczego pola */
+  width: 80%;
+  margin: 0 auto;
   padding: 12px 16px;
   font-size: 15px;
   border: none;
@@ -64,20 +62,8 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* opcjonalnie: styl dla select bez natywnej strzałki
-.add-form select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: url('/assets/arrow-down-white.svg');
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  padding-right: 48px;
-}
-*/
-
 .add-form button {
-  width: 80%;             /* szerokość przycisku dopasowana do pól */
+  width: 80%;
   margin-top: 8px;
   padding: 12px;
   font-size: 16px;
@@ -92,4 +78,47 @@
 
 .add-form button:hover {
   background: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 768px) {
+  .add-bg {
+    padding: 10px;
+  }
+  .add-form {
+    padding: 24px;
+    max-width: 90vw;
+  }
+  .add-form h2 {
+    font-size: 20px;
+  }
+  .add-form input,
+  .add-form textarea,
+  .add-form select,
+  .add-form button {
+    width: 95%;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-bg {
+    padding: 0;
+  }
+  .add-form {
+    padding: 12px 4px;
+    max-width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .add-form h2 {
+    font-size: 18px;
+  }
+  .add-form input,
+  .add-form textarea,
+  .add-form select,
+  .add-form button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 8px;
+  }
 }

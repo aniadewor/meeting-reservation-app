@@ -1,36 +1,35 @@
-
 html, body {
   margin: 0;
   height: 100%;
 }
 
 body {
-  background: linear-gradient(to right, #c471f5 0%, #fa71cd 100%) fixed no-repeat center/cover;
+   background: linear-gradient(to bottom right, #c471f5, #fa71cd);
   font-family: 'Segoe UI', sans-serif;
   overflow-y: auto;
 }
 
 .meetinglist-bg {
-  padding: 120px 20px; 
+  min-height: 100vh;
+  padding: 0 20px;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
+
 .meetinglist-container {
-  background: rgba(255, 255, 255, 0.15);
+   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  max-width: 900px;           
   width: 100%;
-  max-width: 1200px;
   color: white;
   display: flex;
   flex-direction: column;
   padding: 40px;
-  margin: 0 auto;      
-  margin-top: 60px;   
-  margin-bottom: 60px; 
-  overflow: visible;
+  margin: 0 auto;
 }
 
 .meetinglist-container h2 {
@@ -39,28 +38,82 @@ body {
   margin: 40px 0 30px;
 }
 
+.meeting-filters {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  padding: 16px;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.meeting-filters select {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 38px 10px 14px;
+  color: white;
+  font-size: 15px;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s, box-shadow 0.3s;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(200, 113, 245, 0.10);
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.meeting-filters select:focus,
+.meeting-filters select:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 12px rgba(200, 113, 245, 0.18);
+}
+
+.meeting-filters input,
+.meeting-filters .sort-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: white;
+  font-size: 15px;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease;
+}
+
+.meeting-filters input:focus,
+.meeting-filters .sort-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.sort-button {
+  cursor: pointer;
+  font-weight: 500;
+}
+
 .meeting-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
+  width: 100%;
   list-style: none;
   padding: 0;
   margin: 0;
   overflow: visible;
   flex: none;
-}
-
-
-@media (max-width: 900px) {
-  .meeting-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .meeting-grid {
-    grid-template-columns: 1fr;
-  }
+  justify-items: center;
 }
 
 .meeting-card {
@@ -101,53 +154,83 @@ body {
   cursor: pointer;
   font-weight: 500;
   transition: background 0.3s ease;
+  box-shadow: 0 2px 6px rgba(200, 113, 245, 0.08);
 }
 
 .meeting-actions button:hover {
   background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 2px 10px rgba(200, 113, 245, 0.18);
 }
 
-
-.meeting-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 24px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  padding: 16px;
-  border-radius: 20px;
-  align-items: center;
-  font-family: 'Segoe UI', sans-serif;
+@media (max-width: 1000px) {
+  .meetinglist-container,
+  .meeting-filters {
+    max-width: 98vw;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .meeting-grid {
+    gap: 16px;
+  }
 }
 
-.meeting-filters select,
-.meeting-filters input,
-.meeting-filters .sort-button {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 10px;
-  padding: 10px 14px;
-  color: white;
-  font-size: 15px;
-  backdrop-filter: blur(8px);
-  transition: background 0.3s ease;
-}
-
-.meeting-filters select:focus,
-.meeting-filters input:focus,
-.meeting-filters .sort-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  outline: none;
-}
-
-.sort-button {
-  cursor: pointer;
-  font-weight: 500;
+@media (max-width: 800px) {
+  .meetinglist-container {
+    max-width: 98vw;
+    padding: 18px 2vw;
+  }
+  .meeting-filters {
+    padding: 10px 2vw;
+    gap: 10px;
+  }
+  .meeting-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 }
 
 @media (max-width: 600px) {
+  .meetinglist-bg {
+    padding: 40px 2vw;
+  }
+  .meetinglist-container {
+    padding: 10px 2vw;
+  }
   .meeting-filters {
     flex-direction: column;
+    align-items: stretch;
+    padding: 6px;
+  }
+  .meeting-card {
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .meeting-card h3 {
+    font-size: 16px;
+  }
+  .meeting-card p {
+    font-size: 13px;
+  }
+  .meeting-actions button {
+    font-size: 13px;
+    padding: 7px 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .meetinglist-container {
+    padding: 4px 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .meeting-card {
+    padding: 7px;
+    border-radius: 0;
+  }
+  .meeting-card h3 {
+    font-size: 14px;
+  }
+  .meeting-card p {
+    font-size: 11px;
   }
 }

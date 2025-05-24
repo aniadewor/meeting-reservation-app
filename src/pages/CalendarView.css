@@ -1,5 +1,3 @@
-
-
 .calendar-container {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
@@ -38,10 +36,9 @@
   outline: none;
 }
 
-
 .fc .fc-col-header {
   position: sticky;
-  top: 56px; 
+  top: 56px;
   z-index: 5;
   background: rgba(255, 255, 255, 0.15);
 }
@@ -66,7 +63,6 @@
   overflow-y: auto;
 }
 
-
 .fc .fc-daygrid-event,
 .fc .fc-timegrid-event {
   background: rgba(255, 255, 255, 0.2);
@@ -76,4 +72,77 @@
   padding: 2px 4px;
   font-size: 0.85rem;
   font-family: 'Segoe UI', sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .calendar-container {
+    max-width: 95vw;
+    padding: 14px;
+    border-radius: 16px;
+    margin: 20px auto;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-container {
+    max-width: 99vw;
+    padding: 8px;
+    border-radius: 10px;
+    margin: 8px auto;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 1rem;
+  }
+  .fc .fc-button {
+    font-size: 0.98rem;
+    padding: 5px 10px;
+  }
+  .fc .fc-col-header-cell-cushion {
+    font-size: 0.8rem;
+  }
+  .fc .fc-daygrid-event,
+  .fc .fc-timegrid-event {
+    font-size: 0.78rem;
+    padding: 1.5px 2px;
+  }
+  .fc .fc-timegrid-body {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-container {
+    max-width: 100vw;
+    padding: 2px;
+    border-radius: 0;
+    margin: 0;
+  }
+  .fc .fc-toolbar-toolbar {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 0.88rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .fc .fc-button {
+    font-size: 0.88rem;
+    padding: 3.5px 6px;
+    border-radius: 7px;
+  }
+  .fc .fc-col-header-cell-cushion {
+    font-size: 0.7rem;
+  }
+  .fc .fc-daygrid-event,
+  .fc .fc-timegrid-event {
+    font-size: 0.68rem;
+    padding: 1px 1.5px;
+  }
+  .fc .fc-timegrid-body {
+    max-height: 220px;
+  }
 }

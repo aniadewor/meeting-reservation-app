@@ -1,5 +1,3 @@
-
-
 .edit-bg {
   display: flex;
   justify-content: center;
@@ -8,17 +6,13 @@
   padding: 20px;
 }
 
-
 .edit-form {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
   border-radius: 20px;
   padding: 40px;
-  
-  
   width: 100%;
-  max-width: none;
-  
+  max-width: 600px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   color: white;
   display: flex;
@@ -27,7 +21,6 @@
   gap: 16px;
   margin: 0 auto;
 }
-
 
 .edit-form h2 {
   margin: 0 0 16px;
@@ -55,7 +48,6 @@
   resize: vertical;
 }
 
-
 .edit-form input:focus,
 .edit-form textarea:focus,
 .edit-form select:focus {
@@ -73,7 +65,6 @@
   padding-right: 48px;
 }
 
-
 .edit-form button {
   width: 80%;
   padding: 12px;
@@ -89,4 +80,61 @@
 
 .edit-form button:hover {
   background: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 900px) {
+  .edit-form {
+    max-width: 98vw;
+    padding: 28px 6px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .edit-bg {
+    padding: 10px;
+  }
+  .edit-form {
+    max-width: 99vw;
+    padding: 16px 2px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  }
+  .edit-form h2 {
+    font-size: 20px;
+  }
+  .edit-form input,
+  .edit-form textarea,
+  .edit-form select,
+  .edit-form button {
+    width: 95%;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-bg {
+    padding: 0;
+  }
+  .edit-form {
+    padding: 8px 0 12px 0;
+    max-width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .edit-form h2 {
+    font-size: 17px;
+  }
+  .edit-form input,
+  .edit-form textarea,
+  .edit-form select,
+  .edit-form button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 8px;
+  }
+  .edit-form select {
+    padding-right: 36px;
+    background-position: right 8px center;
+  }
 }
