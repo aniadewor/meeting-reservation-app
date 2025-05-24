@@ -17,54 +17,6 @@
       "createdAt": "2025-05-18T14:01:58.281Z"
     },
     {
-      "id": "2e1a",
-      "username": "",
-      "email": "",
-      "password": "",
-      "role": "user",
-      "createdAt": "2025-05-18T18:58:45.099Z"
-    },
-    {
-      "id": "e49a",
-      "username": "",
-      "email": "",
-      "password": "",
-      "role": "user",
-      "createdAt": "2025-05-18T19:03:11.386Z"
-    },
-    {
-      "id": "864f",
-      "username": "",
-      "email": "",
-      "password": "",
-      "role": "user",
-      "createdAt": "2025-05-18T19:28:06.349Z"
-    },
-    {
-      "id": "f966",
-      "username": "aniadewor",
-      "email": "Ania.dewor@gmail.com",
-      "password": "Ania123!",
-      "role": "user",
-      "createdAt": "2025-05-22T11:19:17.361Z"
-    },
-    {
-      "id": "5374",
-      "username": "",
-      "email": "",
-      "password": "",
-      "role": "user",
-      "createdAt": "2025-05-22T12:11:39.762Z"
-    },
-    {
-      "id": "200a",
-      "username": "",
-      "email": "",
-      "password": "",
-      "role": "user",
-      "createdAt": "2025-05-22T15:25:37.658Z"
-    },
-    {
       "id": "47d5",
       "firstName": "Anna ",
       "lastName": "Dewor",
@@ -76,136 +28,68 @@
   ],
   "meetings": [
     {
-      "title": "eee",
-      "description": "eee",
-      "date": "",
-      "startTime": "",
-      "endTime": "",
+      "id": "8086",
+      "title": "Spotkanie zespołu projektowego",
+      "description": "Omówienie postępów nad projektem Alpha, podsumowanie wykonanych zadań i ustalenie kolejnych kroków.",
+      "date": "2025-06-10",
+      "startTime": "11:30",
+      "endTime": "12:30",
       "participants": [
-        "ee"
+        "anna.kowalska@firma.pl",
+        "piotr.nowak@firma.pl",
+        "monika.wisniewska@firma.pl"
       ],
+      "createdBy": "anna@wp.pl",
       "status": "scheduled",
-      "id": "35b4"
+      "createdAt": "2025-05-24T15:42:32.252Z"
     },
     {
-      "id": "7462",
-      "title": "",
-      "description": "",
-      "date": "",
-      "startTime": "",
-      "endTime": "",
+      "id": "5e8a",
+      "title": "Spotkanie ws. budżetu Q3",
+      "description": "Przegląd planowanego budżetu na trzeci kwartał, omówienie kluczowych wydatków oraz rezerwy.",
+      "date": "2025-06-17",
+      "startTime": "13:30",
+      "endTime": "14:00",
       "participants": [
-        ""
+        "karolina.jablonska@firma.pl",
+        "lukasz.kowalczyk@firma.pl",
+        "marta.zielinska@firma.pl"
+      ],
+      "createdBy": "anna@wp.pl",
+      "status": "scheduled",
+      "createdAt": "2025-05-24T15:43:25.401Z"
+    },
+    {
+      "id": "902e",
+      "title": "Warsztaty „Nowe narzędzia analityczne”",
+      "description": "Praktyczne szkolenie z wykorzystania najnowszych funkcji w narzędziu X, ćwiczenia na rzeczywistych danych.",
+      "date": "2025-06-12",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "participants": [
+        "tomasz.lewandowski@firma.pl",
+        "agnieszka.kaczmarek@firma.pl",
+        "pawel.szymanski@firma.pl"
       ],
       "createdBy": "ania@wp.pl",
       "status": "scheduled",
-      "createdAt": "2025-05-18T19:14:56.007Z"
+      "createdAt": "2025-05-24T15:44:24.586Z"
     },
     {
-      "id": "252d",
-      "title": "",
-      "description": "",
-      "date": "",
-      "startTime": "",
-      "endTime": "",
+      "id": "746f",
+      "title": " Konsultacje z działem prawnym",
+      "description": "Omówienie warunków umowy z nowym dostawcą usług IT, identyfikacja ryzyk prawnych.",
+      "date": "2025-06-13",
+      "startTime": "16:00",
+      "endTime": "17:00",
       "participants": [
-        ""
+        "anna.marciniak@firma.pl",
+        "wojciech.nowicki@firma.pl",
+        "ewa.kowal@firma.pl"
       ],
       "createdBy": "ania@wp.pl",
       "status": "scheduled",
-      "createdAt": "2025-05-18T19:27:54.429Z"
-    },
-    {
-      "id": "501e",
-      "title": "nowe spotkanie",
-      "description": "To jest nowe spotkanie",
-      "date": "",
-      "startTime": "",
-      "endTime": "13:30",
-      "participants": [
-        ""
-      ],
-      "createdBy": "Ania.dewor@gmail.com",
-      "status": "scheduled",
-      "createdAt": "2025-05-22T11:20:07.745Z"
-    },
-    {
-      "title": "",
-      "description": "",
-      "date": "",
-      "startTime": "",
-      "endTime": "",
-      "participants": [
-        ""
-      ],
-      "status": "scheduled",
-      "id": "4779"
-    },
-    {
-      "title": "",
-      "description": "",
-      "date": "",
-      "startTime": "",
-      "endTime": "",
-      "participants": [],
-      "status": "scheduled",
-      "id": "fedd"
-    },
-    {
-      "id": "a290",
-      "title": "",
-      "description": "",
-      "date": "",
-      "startTime": "",
-      "endTime": "",
-      "participants": [
-        ""
-      ],
-      "createdBy": "Ania.dewor@gmail.com",
-      "status": "scheduled",
-      "createdAt": "2025-05-22T11:56:20.629Z"
-    },
-    {
-      "id": "8e96",
-      "title": "",
-      "description": "",
-      "date": "",
-      "startTime": "",
-      "endTime": "",
-      "participants": [
-        ""
-      ],
-      "createdBy": "Ania.dewor@gmail.com",
-      "status": "scheduled",
-      "createdAt": "2025-05-22T11:56:23.710Z"
-    },
-    {
-      "id": "c862",
-      "title": "",
-      "description": "",
-      "date": "",
-      "startTime": "",
-      "endTime": "",
-      "participants": [
-        ""
-      ],
-      "createdBy": "Ania.dewor@gmail.com",
-      "status": "scheduled",
-      "createdAt": "2025-05-22T11:56:26.312Z"
-    },
-    {
-      "id": "d7ab",
-      "title": "f",
-      "description": "ffff",
-      "date": "2025-05-30",
-      "startTime": "12:30",
-      "endTime": "13:30",
-      "participants": [
-        "Ania.dewor@gmail.com"
-      ],
-      "createdBy": "Ania.dewor@gmail.com",
-      "status": "scheduled",
-      "createdAt": "2025-05-22T17:16:05.224Z"
+      "createdAt": "2025-05-24T15:45:05.649Z"
     }
   ]
 }

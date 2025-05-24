@@ -10,7 +10,6 @@
   color: white;
 }
 
-/* Pasek narzędzi i tytuł */
 .fc .fc-toolbar-toolbar {
   display: flex;
   justify-content: space-between;
@@ -23,7 +22,6 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Przycisk na pasku kalendarza */
 .fc .fc-button {
   background: rgba(255, 255, 255, 0.2);
   border: none;
@@ -40,10 +38,10 @@
   outline: none;
 }
 
-/* Nagłówki dni tygodnia - sticky */
+
 .fc .fc-col-header {
   position: sticky;
-  top: 56px; /* wysokość toolbaru */
+  top: 56px; 
   z-index: 5;
   background: rgba(255, 255, 255, 0.15);
 }
@@ -59,18 +57,16 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Siatka godzin w widoku tygodniowym */
 .fc .fc-timegrid-slot {
   border-top: 1px dotted rgba(255, 255, 255, 0.3);
 }
 
-/* Przewijalne godziny */
 .fc .fc-timegrid-body {
   max-height: 600px;
   overflow-y: auto;
 }
 
-/* Styl wydarzeń */
+
 .fc .fc-daygrid-event,
 .fc .fc-timegrid-event {
   background: rgba(255, 255, 255, 0.2);

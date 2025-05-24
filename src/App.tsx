@@ -1,24 +1,23 @@
-// src/App.tsx
+
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 import AddMeeting from "./pages/AddMeeting";
 import MeetingList from "./pages/MeetingList";
 import EditMeeting from "./pages/EditMeeting";
-import Dashboard from "./pages/Dashboard";
-import AdminDashboard from "./pages/AdminDashboard";  // ← nowy import
-import PrivateRoute from "./components/PrivateRoute";
 import CalendarView from "./pages/CalendarView";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <Routes>
-      {/* Publiczne trasy */}
+      {/* Publiczne */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="*" element={<div>404 - Not Found</div>} />
 
-      {/* Chronione trasy */}
+      {/* Chronione dla user i admin */}
       <Route
         path="/"
         element={
@@ -27,7 +26,6 @@ function App() {
           </PrivateRoute>
         }
       />
-
       <Route
         path="/add"
         element={
@@ -36,7 +34,6 @@ function App() {
           </PrivateRoute>
         }
       />
-
       <Route
         path="/meetings"
         element={
@@ -45,7 +42,6 @@ function App() {
           </PrivateRoute>
         }
       />
-
       <Route
         path="/edit/:id"
         element={
@@ -54,8 +50,16 @@ function App() {
           </PrivateRoute>
         }
       />
+      <Route
+        path="/calendar"
+        element={
+          <PrivateRoute allowedRoles={["user", "admin"]}>
+            <CalendarView />
+          </PrivateRoute>
+        }
+      />
 
-      {/* Panel administratora */}
+      {/* Tylko admin */}
       <Route
         path="/admin"
         element={
@@ -64,14 +68,9 @@ function App() {
           </PrivateRoute>
         }
       />
-      <Route
-    path="/calendar"
-    element={
-      <PrivateRoute allowedRoles={['user','admin']}>
-        <CalendarView />
-      </PrivateRoute>
-    }
-  />
+
+      {/* 404 – zawsze na samym dole */}
+      <Route path="*" element={<div>404 - Not Found</div>} />
     </Routes>
   );
 }

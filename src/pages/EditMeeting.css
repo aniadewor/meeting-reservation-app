@@ -1,4 +1,4 @@
-/* EditMeeting.css */
+
 
 .edit-bg {
   display: flex;
@@ -7,7 +7,7 @@
   min-height: 100vh;
   padding: 20px;
 }
-/* EditMeeting.css */
+
 
 .edit-form {
   background: rgba(255, 255, 255, 0.15);
@@ -15,7 +15,7 @@
   border-radius: 20px;
   padding: 40px;
   
-  /* nowe wartości: pełna szerokość w ramach paddingu + brak limitu */
+  
   width: 100%;
   max-width: none;
   
@@ -35,7 +35,6 @@
   font-size: 24px;
 }
 
-/* pola input/textarea/select dostaną 80% szerokości formularza */
 .edit-form input,
 .edit-form textarea,
 .edit-form select {
@@ -51,13 +50,12 @@
   transition: background 0.3s ease;
 }
 
-/* większa wysokość dla textarea */
 .edit-form textarea {
   min-height: 100px;
   resize: vertical;
 }
 
-/* focus */
+
 .edit-form input:focus,
 .edit-form textarea:focus,
 .edit-form select:focus {
@@ -65,7 +63,6 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* dropdown bez domyślnej strzałki */
 .edit-form select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -76,7 +73,7 @@
   padding-right: 48px;
 }
 
-/* przycisk */
+
 .edit-form button {
   width: 80%;
   padding: 12px;

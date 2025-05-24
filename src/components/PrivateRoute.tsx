@@ -1,28 +1,28 @@
 // components/PrivateRoute.tsx
-import { Navigate } from "react-router-dom";
 import React from "react";
+import { Navigate } from "react-router-dom";
 
 interface Props {
   children: React.ReactElement;
-  /** Jeśli tablica ról jest podana, tylko użytkownicy z jedną z tych ról będą mieli dostęp */
-  allowedRoles?: Array<"admin" | "user">;
+  /** Jeśli jest podana, to user.role musi być jedną z tych ról */
+  allowedRoles?: string[];
 }
 
-function PrivateRoute({ children, allowedRoles }: Props) {
-  const user = JSON.parse(localStorage.getItem("user") || "null");
+const PrivateRoute: React.FC<Props> = ({ children, allowedRoles }) => {
+  const stored = localStorage.getItem("user");
+  const user = stored ? JSON.parse(stored) : null;
 
   // Brak zalogowanego użytkownika → przekieruj do logowania
-  if (!user || !user.email) {
+  if (!user?.email) {
     return <Navigate to="/login" replace />;
   }
 
-  // Jeśli zdefiniowano allowedRoles i rola usera nie jest w tej tablicy → brak dostępu
+  // Ograniczenie dostępu wg roli
   if (allowedRoles && !allowedRoles.includes(user.role)) {
     return <Navigate to="/" replace />;
   }
 
-  // W przeciwnym razie renderuj dzieci
   return children;
-}
+};
 
 export default PrivateRoute;

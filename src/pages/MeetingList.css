@@ -1,26 +1,21 @@
-/* styles.css */
 
-/* RESET MARGINS I PEŁNA WYSOKOŚĆ */
 html, body {
   margin: 0;
   height: 100%;
 }
 
-/* GRADIENT TŁA NA CAŁYM BODY (ciągły, bez przerw) */
 body {
   background: linear-gradient(to right, #c471f5 0%, #fa71cd 100%) fixed no-repeat center/cover;
   font-family: 'Segoe UI', sans-serif;
   overflow-y: auto;
 }
 
-/* GŁÓWNY WRAPPER BEZ BACKGROUND, TYLKO PODBIERA BODY */
 .meetinglist-bg {
-  padding: 120px 20px; /* wystarczająco dużo miejsca nad i pod kontenerem */
+  padding: 120px 20px; 
   display: flex;
   justify-content: center;
 }
 
-/* KONTAINER Z GLASSMORPHISM, TERAZ Z MARGINESAMI I ZAOKRĄGLONYMI ROGAMI */
 .meetinglist-container {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
@@ -32,9 +27,9 @@ body {
   display: flex;
   flex-direction: column;
   padding: 40px;
-  margin: 0 auto;      /* centrowanie oraz domyślne marginesy */
-  margin-top: 60px;    /* dodatkowa przerwa nad kontenerem */
-  margin-bottom: 60px; /* taka sama przerwa pod kontenerem */
+  margin: 0 auto;      
+  margin-top: 60px;   
+  margin-bottom: 60px; 
   overflow: visible;
 }
 
@@ -55,7 +50,7 @@ body {
   flex: none;
 }
 
-/* Responsywność */
+
 @media (max-width: 900px) {
   .meeting-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -112,7 +107,7 @@ body {
   background: rgba(255, 255, 255, 0.45);
 }
 
-/* Filtry nad listą spotkań */
+
 .meeting-filters {
   display: flex;
   flex-wrap: wrap;
@@ -151,7 +146,6 @@ body {
   font-weight: 500;
 }
 
-/* Na węższych ekranach układ filtrów jeden pod drugim */
 @media (max-width: 600px) {
   .meeting-filters {
     flex-direction: column;

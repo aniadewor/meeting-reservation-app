@@ -1,20 +1,28 @@
-.dashboard-bg {
-  height: 100vh;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
   background: linear-gradient(to bottom right, #c471f5, #fa71cd);
+}
+
+.dashboard-bg {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
   padding: 20px;
+  
 }
 
 .dashboard-box {
-  background: rgba(255, 255, 255, 0.15);
+
   backdrop-filter: blur(15px);
   border-radius: 20px;
   padding: 40px 30px;
   max-width: 500px;
   width: 100%;
+  margin: auto;
   color: white;
   text-align: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -23,7 +31,7 @@
   gap: 30px;
 }
 
-/* Nagłówek z awatarem */
+
 .dashboard-header {
   display: flex;
   flex-direction: column;
@@ -32,7 +40,7 @@
 }
 
 .dashboard-avatar {
-  background: #ffffff30;
+  background: rgba(255, 255, 255, 0.3);
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -53,7 +61,7 @@
   opacity: 0.85;
 }
 
-/* Przyciskowy grid */
+
 .dashboard-buttons {
   display: flex;
   flex-direction: column;

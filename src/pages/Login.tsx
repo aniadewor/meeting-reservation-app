@@ -29,7 +29,15 @@ export default function Login() {
       const user = users[0];
       localStorage.setItem("user", JSON.stringify(user));
       alert("✅ Zalogowano pomyślnie!");
-      navigate("/");
+
+      console.log(">>> LOGOWANIE: role =", user.role);
+
+      // przekierowanie w zależności od roli
+      if (user.role === "admin") {
+        navigate("/admin", { replace: true });
+      } else {
+        navigate("/", { replace: true });
+      }
     } catch (err: any) {
       console.error("❌ Błąd logowania:", err.message || err);
       alert("Błąd logowania.");
